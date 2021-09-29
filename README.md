@@ -4,7 +4,6 @@
 1. [ Description ](#repo)
 2. [ Technology ](#tech)
 3. [ Sylabus ](#syl)
-4. [ To-Do task list ](#todo)
 
 
 <a name="repo"></a>
@@ -35,26 +34,3 @@ Get knownledge of:
 8. Using static code check
 9. Using doxygen to genereta documentation 
 10. Using external API to figure how to using authentication and using documentation.
-
-<a name="todo"></a>
-#To-do list
-
-Configure IDE([CodeBlocks](https://www.codeblocks.org/)) to work with:
-- [x] Autocompletion (something like inteliJ)
-- [x] Cppcheck
-- [x] Debugger GDB
-- [x] Compilator GCC (with -Wall flag) 
-- [ ] GoogleTest
-
-C++ excercises:<br />
-1.
-- [ ] Create interface "Animal" with one virtual fuction.
-- [ ] Create few class like "dog" , "cat" etc. which will be inheritance interface "Animal".
-- [ ] Create vector of (smart)pointers to interface "Animal".
-- [ ] Insert classes from above (dog, cats etc.) to vector.
-- [ ] Call virtual function from interface "Animal" on all elements of vector.
-- [ ] Create new virtual function in interface "Animal" which name will be "crash".
-- [ ] In function "crash" create try-catch block.
-- [ ] Call new virtual function on your vector.
-- [ ] Wrtie unit tests to covering your code.
-- [ ] Write documentation.
