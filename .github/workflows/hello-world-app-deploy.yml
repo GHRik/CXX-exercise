@@ -21,6 +21,8 @@ jobs:
         
       - name: Install cmake
         uses: Symbitic/install-cmake@v0.1.0
+        env:
+          ACTIONS_ALLOW_UNSECURE_COMMANDS: True
       
       - run: cd Hello-world
       
