@@ -19,13 +19,13 @@ jobs:
       - name: Install cmake
         uses: Symbitic/install-cmake@v0.1.0
       
+      - run: cd Hello-world
+      
       - name: Make build dir
-        run: mkdir build
+        run: mkdir build && cd build
               
       - name: Run cmake
         run: cmake ..
-        working-directory: ${{ GITHUB_WORKSPACE }}/build
         
       - name: Cmake build
         run: cmake --build .
-        working-directory: ${{ GITHUB_WORKSPACE }}/build
