@@ -2,7 +2,7 @@ name: Deploy hello-world-app
 
 on:
   push:
-    branches: [ hello-world-app, exercise-1 ]
+    branches: [ hello-world-app ]
 
 jobs:
   build:
