@@ -28,4 +28,4 @@ jobs:
         run:  cmake Hello-world
         
       - name: Cmake build
-        run: cmake --build Hello-world
+        run: cmake --build .
