@@ -23,14 +23,9 @@ jobs:
         uses: Symbitic/install-cmake@v0.1.0
         env:
           ACTIONS_ALLOW_UNSECURE_COMMANDS: True
-      
-      - run: cd Hello-world
-      
-      - name: Make build dir
-        run: mkdir build && cd build
               
       - name: Run cmake
-        run: cmake ..
+        run:  cmake Hello-world
         
       - name: Cmake build
-        run: cmake --build .
+        run: cmake --build Hello-world
