@@ -2,7 +2,7 @@ name: Deploy hello-world-app
 
 on:
   push:
-    branches: [ hello-world-app, exercise-1 ]
+    branches: [ hello-world-app ]
 
 jobs:
   build:
@@ -15,17 +15,20 @@ jobs:
         
       - name: Publish results
         uses: mikeal/publish-to-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH_NAME: 'hello-world-app'
+          
+      - name: Install googleTest
+        uses: MarkusJx/googletest-installer@v1.1
         
       - name: Install cmake
         uses: Symbitic/install-cmake@v0.1.0
-      
-      - run: cd Hello-world
-      
-      - name: Make build dir
-        run: mkdir build && cd build
+        env:
+          ACTIONS_ALLOW_UNSECURE_COMMANDS: True
               
       - name: Run cmake
-        run: cmake ..
+        run:  cmake Hello-world
         
       - name: Cmake build
         run: cmake --build .
