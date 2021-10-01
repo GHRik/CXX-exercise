@@ -1,2 +1,5 @@
-Hello-world/Hello-world.cbp  
-Hello-world/Hello-world.layout
+Hello-world/*
+!Hello-world/src
+!Hello-world/headers
+!Hello-world/tests
+!Hello-world/main.cpp

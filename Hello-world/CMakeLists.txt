@@ -1,4 +1,7 @@
 cmake_minimum_required(VERSION 3.10)
 project(HelloWorld)
 
-add_executable(${CMAKE_PROJECT_NAME} main.cpp )
+INCLUDE_DIRECTORIES(headers)
+add_executable(${CMAKE_PROJECT_NAME} 
+               main.cpp 
+               src/funcs.cpp)

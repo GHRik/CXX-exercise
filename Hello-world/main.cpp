@@ -1,9 +1,7 @@
 #include <iostream>
-
-using namespace std;
+#include "headers/funcs.hpp"
 
 int main()
 {
-    cout << "Hello world!" << endl;
-    return 0;
+    std::cout << hello();
 }
