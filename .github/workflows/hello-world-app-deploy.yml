@@ -18,9 +18,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH_NAME: 'hello-world-app'
-          
-      - name: Install googleTest
-        uses: MarkusJx/googletest-installer@v1.1
         
       - name: Install cmake
         uses: Symbitic/install-cmake@v0.1.0
