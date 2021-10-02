@@ -1,8 +1,8 @@
-name: Deploy hello-world-app
+name: Deploy hello-world-app and tests
 
 on:
   push:
-    branches: [ hello-world-app ]
+    branches: [ main ]
 
 jobs:
   build:
@@ -26,6 +26,6 @@ jobs:
               
       - name: Run cmake
         run:  cmake Hello-world
-        
+      
       - name: Cmake build
         run: cmake --build .
