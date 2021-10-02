@@ -1,8 +1,8 @@
-name: Deploy hello-world-app
+name: Deploy hello-world-app and tests
 
 on:
   push:
-    branches: [ hello-world-app ]
+    branches: [ main ]
 
 jobs:
   build:
@@ -15,17 +15,17 @@ jobs:
         
       - name: Publish results
         uses: mikeal/publish-to-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH_NAME: 'hello-world-app'
         
       - name: Install cmake
         uses: Symbitic/install-cmake@v0.1.0
-      
-      - run: cd Hello-world
-      
-      - name: Make build dir
-        run: mkdir build && cd build
+        env:
+          ACTIONS_ALLOW_UNSECURE_COMMANDS: True
               
       - name: Run cmake
-        run: cmake ..
-        
+        run:  cmake Hello-world
+      
       - name: Cmake build
         run: cmake --build .
