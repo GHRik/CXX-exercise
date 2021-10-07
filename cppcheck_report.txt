@@ -1,29 +1,29 @@
-Exercise-1/headers/Cat.hpp:11:21: style: The function 'sleep' overrides a function in a base class but is not marked with a 'override' specifier. [missingOverride]
-        std::string sleep();
+Exercise-1/headers/Cat.hpp:11:21: style: The function 'sleeping' overrides a function in a base class but is not marked with a 'override' specifier. [missingOverride]
+        std::string sleeping();
                     ^
 Exercise-1/headers/Interfaces/Animal.hpp:11:29: note: Virtual function in base class
-        virtual std::string sleep() = 0;
+        virtual std::string sleeping() = 0;
                             ^
 Exercise-1/headers/Cat.hpp:11:21: note: Function in derived class
-        std::string sleep();
+        std::string sleeping();
                     ^
-Exercise-1/headers/Dog.hpp:11:21: style: The function 'sleep' overrides a function in a base class but is not marked with a 'override' specifier. [missingOverride]
-        std::string sleep();
+Exercise-1/headers/Dog.hpp:11:21: style: The function 'sleeping' overrides a function in a base class but is not marked with a 'override' specifier. [missingOverride]
+        std::string sleeping();
                     ^
 Exercise-1/headers/Interfaces/Animal.hpp:11:29: note: Virtual function in base class
-        virtual std::string sleep() = 0;
+        virtual std::string sleeping() = 0;
                             ^
 Exercise-1/headers/Dog.hpp:11:21: note: Function in derived class
-        std::string sleep();
+        std::string sleeping();
                     ^
-Exercise-1/headers/Monkey.hpp:11:21: style: The function 'sleep' overrides a function in a base class but is not marked with a 'override' specifier. [missingOverride]
-        std::string sleep();
+Exercise-1/headers/Monkey.hpp:11:21: style: The function 'sleeping' overrides a function in a base class but is not marked with a 'override' specifier. [missingOverride]
+        std::string sleeping();
                     ^
 Exercise-1/headers/Interfaces/Animal.hpp:11:29: note: Virtual function in base class
-        virtual std::string sleep() = 0;
+        virtual std::string sleeping() = 0;
                             ^
 Exercise-1/headers/Monkey.hpp:11:21: note: Function in derived class
-        std::string sleep();
+        std::string sleeping();
                     ^
 nofile:0:0: information: Cppcheck cannot find all the include files (use --check-config for details) [missingInclude]
 
