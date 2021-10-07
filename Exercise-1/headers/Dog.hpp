@@ -8,7 +8,7 @@ class Dog : public Animal
     public:
         Dog();
         virtual ~Dog();
-        std::string sleep();
+        std::string sleeping();
 };
 
 #endif // DOG_HPP

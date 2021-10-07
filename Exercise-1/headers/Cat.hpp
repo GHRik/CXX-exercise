@@ -8,7 +8,7 @@ class Cat : Animal
     public:
         Cat();
         virtual ~Cat();
-        std::string sleep();
+        std::string sleeping();
 };
 
 #endif // CAT_HPP

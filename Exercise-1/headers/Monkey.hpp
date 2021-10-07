@@ -8,7 +8,7 @@ class Monkey:public Animal
     public:
         Monkey();
         virtual ~Monkey();
-        std::string sleep();
+        std::string sleeping();
 };
 
 #endif // MONKEY_HPP

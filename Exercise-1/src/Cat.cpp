@@ -10,7 +10,7 @@ Cat::~Cat()
     //dtor
 }
 
-std::string Cat::sleep()
+std::string Cat::sleeping()
 {
 
 }
