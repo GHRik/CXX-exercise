@@ -3,7 +3,7 @@
 
 #include "utils.hpp"
 
-class Monkey:public Animal
+class Monkey : public Animal
 {
     public:
         Monkey();
