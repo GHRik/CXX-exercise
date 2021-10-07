@@ -9,3 +9,8 @@ Dog::~Dog()
 {
     //dtor
 }
+
+std::string Dog::sleep()
+{
+
+}

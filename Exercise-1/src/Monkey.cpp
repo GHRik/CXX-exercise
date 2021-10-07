@@ -9,3 +9,8 @@ Monkey::~Monkey()
 {
     //dtor
 }
+
+std::string Monkey::sleep()
+{
+
+}

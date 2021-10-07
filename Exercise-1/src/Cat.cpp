@@ -9,3 +9,8 @@ Cat::~Cat()
 {
     //dtor
 }
+
+std::string Cat::sleep()
+{
+
+}

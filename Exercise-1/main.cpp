@@ -7,6 +7,9 @@ using namespace std;
 
 int main()
 {
-    cout << "Hello world!" << endl;
+    Cat cat;
+    Dog dog;
+    Monkey monkey;
+
     return 0;
 }
