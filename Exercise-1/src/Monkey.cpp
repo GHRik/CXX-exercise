@@ -12,5 +12,5 @@ Monkey::~Monkey()
 
 std::string Monkey::sleeping()
 {
-
+    return "Zzz... uauaua!";
 }

@@ -12,5 +12,5 @@ Cat::~Cat()
 
 std::string Cat::sleeping()
 {
-
+ return "Zzz... mau!";
 }

@@ -12,5 +12,5 @@ Dog::~Dog()
 
 std::string Dog::sleeping()
 {
-
+    return "Zzz... wof!";
 }
