@@ -1,7 +1,8 @@
-name: Deploy exercie-1 and tests
+name: Deploy exercise-1 and tests
 
 on:
   push:
+    branches: [ exercise-1 ]
 
 jobs:
   build-exercie-1-and-test:
@@ -16,6 +17,7 @@ jobs:
         uses: mikeal/publish-to-github-action@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH_NAME: 'exercise-1'
         
       - name: Install cmake
         uses: Symbitic/install-cmake@v0.1.0
