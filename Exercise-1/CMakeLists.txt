@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.10)
-project(Exercise-1)
+project(exercise-1)
 
 
 set(SOURCES 
