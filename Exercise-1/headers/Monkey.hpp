@@ -1,7 +1,7 @@
 #ifndef MONKEY_HPP
 #define MONKEY_HPP
 
-#include "../utils.cpp"
+#include "utils.hpp"
 
 class Monkey:public Animal
 {

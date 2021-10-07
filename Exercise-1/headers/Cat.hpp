@@ -1,7 +1,7 @@
 #ifndef CAT_HPP
 #define CAT_HPP
 
-#include "../utils.cpp"
+#include "utils.hpp"
 
 class Cat : Animal
 {
