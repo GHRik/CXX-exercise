@@ -8,7 +8,7 @@ class Monkey : public Animal
     public:
         Monkey();
         virtual ~Monkey();
-        std::string sleeping();
+        std::string sleeping() override;
 };
 
 #endif // MONKEY_HPP
