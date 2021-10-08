@@ -9,6 +9,7 @@ set(SOURCES
     src/Interfaces/Animal.cpp
     )
 set(TEST_SOURCES
+    tests/unitTestAnimal.cpp
    )
 
 INCLUDE_DIRECTORIES(headers)
@@ -38,6 +39,7 @@ add_executable(${CMAKE_PROJECT_NAME}
 target_link_libraries(
   ${CMAKE_PROJECT_NAME}
   gtest_main
+  gmock_main
 )
 
 add_custom_command( TARGET ${CMAKE_PROJECT_NAME}
