@@ -28,5 +28,7 @@ int main()
         std::cout << myAnimals.at(i).get()->sleeping() << std::endl;
     }
 
+    cat.get()->crash();
+
     return 0;
 }

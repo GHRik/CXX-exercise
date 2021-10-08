@@ -2,6 +2,7 @@
 #define ANIMAL_H
 
 #include <string>
+#include <iostream>
 
 class Animal
 {
@@ -9,6 +10,7 @@ class Animal
         Animal();
         virtual ~Animal();
         virtual std::string sleeping() = 0;
+        void crash();
 };
 
 #endif // ANIMAL_H
