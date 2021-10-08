@@ -9,3 +9,8 @@ Animal::~Animal()
 {
     //dtor
 }
+
+void Animal::crash()
+{
+    throw 5;
+}

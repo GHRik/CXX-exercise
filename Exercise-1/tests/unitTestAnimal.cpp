@@ -1,4 +1,7 @@
 #include "../headers/Interfaces/Animal.hpp"
+#include "../headers/Cat.hpp"
+#include "../headers/Dog.hpp"
+#include "../headers/Monkey.hpp"
 #include <gtest/gtest.h>
 #include <gmock/gmock.h>
 #include <string>
@@ -20,5 +23,20 @@ TEST(MockCatTest,SleepingFunction) {
 
 }
 
-
 }
+TEST( CatTest, CrashTest ) {
+    Cat cat;
+    EXPECT_THROW(cat.crash(), int);
+}
+
+TEST( DogTest, CrashTest ) {
+    Dog dog;
+    EXPECT_THROW(dog.crash(), int);
+}
+
+TEST( MonkeyTest, CrashTest ) {
+    Monkey monkey;
+    EXPECT_THROW(monkey.crash(), int);
+}
+
+
