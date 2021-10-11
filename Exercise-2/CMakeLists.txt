@@ -3,7 +3,7 @@ project(exercise-2)
 
 
 set(SOURCES
-    src/myList.cpp
+    src/MyList.cpp
     )
 set(TEST_SOURCES
     tests/myList_unittest.cpp
