@@ -8,4 +8,5 @@ Exercise-*/*
 !Exercise-*/src
 !Exercise-*/headers
 !Exercise-*/tests
+!Exercise-*/Cmake*
 !Exercise-*/main.cpp
