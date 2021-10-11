@@ -1,4 +1,4 @@
-name: Deploy exercise-1 and tests
+name: Deploy exercise-2 and tests
 
 on:
   push:
@@ -25,7 +25,7 @@ jobs:
           ACTIONS_ALLOW_UNSECURE_COMMANDS: True
               
       - name: Run cmake
-        run:  cmake Exercise-1
+        run:  cmake Exercise-2
       
       - name: Cmake build tests
         run: cmake --build . --target Tests
