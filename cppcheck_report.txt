@@ -1,92 +1,38 @@
-Exercise-2/headers/MyList.hpp:12:22: style:inconclusive: Technically the member function 'MyList < int >::getSize' can be const. [functionConst]
+Exercise-2/headers/MyList.hpp:22:22: style:inconclusive: Technically the member function 'MyList < int >::getSize' can be const. [functionConst]
         unsigned int getSize();
                      ^
-Exercise-2/src/MyList.cpp:17:25: note: Technically the member function 'MyList < int >::getSize' can be const.
+Exercise-2/src/MyList.cpp:10:25: note: Technically the member function 'MyList < int >::getSize' can be const.
 unsigned int MyList<T>::getSize()
                         ^
-Exercise-2/headers/MyList.hpp:12:22: note: Technically the member function 'MyList < int >::getSize' can be const.
+Exercise-2/headers/MyList.hpp:22:22: note: Technically the member function 'MyList < int >::getSize' can be const.
         unsigned int getSize();
                      ^
-Exercise-2/headers/MyList.hpp:13:28: performance:inconclusive: Technically the member function 'MyList < int >::back_push' can be static (but you may consider moving to unnamed namespace). [functionStatic]
-        utils::RESULT_CODE back_push(T object);
-                           ^
-Exercise-2/src/MyList.cpp:23:31: note: Technically the member function 'MyList < int >::back_push' can be static (but you may consider moving to unnamed namespace).
-utils::RESULT_CODE MyList<T>::back_push(T object)
-                              ^
-Exercise-2/headers/MyList.hpp:13:28: note: Technically the member function 'MyList < int >::back_push' can be static (but you may consider moving to unnamed namespace).
-        utils::RESULT_CODE back_push(T object);
-                           ^
-Exercise-2/headers/MyList.hpp:14:28: performance:inconclusive: Technically the member function 'MyList < int >::front_push' can be static (but you may consider moving to unnamed namespace). [functionStatic]
-        utils::RESULT_CODE front_push(T object);
-                           ^
-Exercise-2/src/MyList.cpp:29:31: note: Technically the member function 'MyList < int >::front_push' can be static (but you may consider moving to unnamed namespace).
-utils::RESULT_CODE MyList<T>::front_push(T object)
-                              ^
-Exercise-2/headers/MyList.hpp:14:28: note: Technically the member function 'MyList < int >::front_push' can be static (but you may consider moving to unnamed namespace).
-        utils::RESULT_CODE front_push(T object);
-                           ^
-Exercise-2/headers/MyList.hpp:15:28: performance:inconclusive: Technically the member function 'MyList < int >::front_pop' can be static (but you may consider moving to unnamed namespace). [functionStatic]
+Exercise-2/headers/MyList.hpp:25:28: performance:inconclusive: Technically the member function 'MyList < int >::front_pop' can be static (but you may consider moving to unnamed namespace). [functionStatic]
         utils::RESULT_CODE front_pop();
                            ^
-Exercise-2/src/MyList.cpp:35:31: note: Technically the member function 'MyList < int >::front_pop' can be static (but you may consider moving to unnamed namespace).
+Exercise-2/src/MyList.cpp:68:31: note: Technically the member function 'MyList < int >::front_pop' can be static (but you may consider moving to unnamed namespace).
 utils::RESULT_CODE MyList<T>::front_pop()
                               ^
-Exercise-2/headers/MyList.hpp:15:28: note: Technically the member function 'MyList < int >::front_pop' can be static (but you may consider moving to unnamed namespace).
+Exercise-2/headers/MyList.hpp:25:28: note: Technically the member function 'MyList < int >::front_pop' can be static (but you may consider moving to unnamed namespace).
         utils::RESULT_CODE front_pop();
                            ^
-Exercise-2/headers/MyList.hpp:16:28: performance:inconclusive: Technically the member function 'MyList < int >::back_pop' can be static (but you may consider moving to unnamed namespace). [functionStatic]
+Exercise-2/headers/MyList.hpp:26:28: performance:inconclusive: Technically the member function 'MyList < int >::back_pop' can be static (but you may consider moving to unnamed namespace). [functionStatic]
         utils::RESULT_CODE back_pop();
                            ^
-Exercise-2/src/MyList.cpp:41:31: note: Technically the member function 'MyList < int >::back_pop' can be static (but you may consider moving to unnamed namespace).
+Exercise-2/src/MyList.cpp:74:31: note: Technically the member function 'MyList < int >::back_pop' can be static (but you may consider moving to unnamed namespace).
 utils::RESULT_CODE MyList<T>::back_pop()
                               ^
-Exercise-2/headers/MyList.hpp:16:28: note: Technically the member function 'MyList < int >::back_pop' can be static (but you may consider moving to unnamed namespace).
+Exercise-2/headers/MyList.hpp:26:28: note: Technically the member function 'MyList < int >::back_pop' can be static (but you may consider moving to unnamed namespace).
         utils::RESULT_CODE back_pop();
                            ^
-Exercise-2/headers/MyList.hpp:17:28: performance:inconclusive: Technically the member function 'MyList < int >::insert_to_list' can be static (but you may consider moving to unnamed namespace). [functionStatic]
+Exercise-2/headers/MyList.hpp:27:28: performance:inconclusive: Technically the member function 'MyList < int >::insert_to_list' can be static (but you may consider moving to unnamed namespace). [functionStatic]
         utils::RESULT_CODE insert_to_list(unsigned int element, T object);
                            ^
-Exercise-2/src/MyList.cpp:47:31: note: Technically the member function 'MyList < int >::insert_to_list' can be static (but you may consider moving to unnamed namespace).
+Exercise-2/src/MyList.cpp:82:31: note: Technically the member function 'MyList < int >::insert_to_list' can be static (but you may consider moving to unnamed namespace).
 utils::RESULT_CODE MyList<T>::insert_to_list(unsigned int ,T object)
                               ^
-Exercise-2/headers/MyList.hpp:17:28: note: Technically the member function 'MyList < int >::insert_to_list' can be static (but you may consider moving to unnamed namespace).
+Exercise-2/headers/MyList.hpp:27:28: note: Technically the member function 'MyList < int >::insert_to_list' can be static (but you may consider moving to unnamed namespace).
         utils::RESULT_CODE insert_to_list(unsigned int element, T object);
                            ^
-Exercise-2/headers/MyList.hpp:18:28: performance:inconclusive: Technically the member function 'MyList < int >::printAll' can be static (but you may consider moving to unnamed namespace). [functionStatic]
-        utils::RESULT_CODE printAll();
-                           ^
-Exercise-2/src/MyList.cpp:53:31: note: Technically the member function 'MyList < int >::printAll' can be static (but you may consider moving to unnamed namespace).
-utils::RESULT_CODE MyList<T>::printAll()
-                              ^
-Exercise-2/headers/MyList.hpp:18:28: note: Technically the member function 'MyList < int >::printAll' can be static (but you may consider moving to unnamed namespace).
-        utils::RESULT_CODE printAll();
-                           ^
-Exercise-2/headers/MyList.hpp:19:28: performance:inconclusive: Technically the member function 'MyList < int >::clear_list' can be static (but you may consider moving to unnamed namespace). [functionStatic]
-        utils::RESULT_CODE clear_list();
-                           ^
-Exercise-2/src/MyList.cpp:59:31: note: Technically the member function 'MyList < int >::clear_list' can be static (but you may consider moving to unnamed namespace).
-utils::RESULT_CODE MyList<T>::clear_list()
-                              ^
-Exercise-2/headers/MyList.hpp:19:28: note: Technically the member function 'MyList < int >::clear_list' can be static (but you may consider moving to unnamed namespace).
-        utils::RESULT_CODE clear_list();
-                           ^
-Exercise-2/headers/MyList.hpp:20:11: performance:inconclusive: Technically the member function 'MyList < int >::getElement' can be static (but you may consider moving to unnamed namespace). [functionStatic]
-        T getElement(unsigned int element);
-          ^
-Exercise-2/src/MyList.cpp:65:14: note: Technically the member function 'MyList < int >::getElement' can be static (but you may consider moving to unnamed namespace).
-T MyList<T>::getElement(unsigned int element)
-             ^
-Exercise-2/headers/MyList.hpp:20:11: note: Technically the member function 'MyList < int >::getElement' can be static (but you may consider moving to unnamed namespace).
-        T getElement(unsigned int element);
-          ^
-Exercise-2/headers/MyList.hpp:21:14: performance:inconclusive: Technically the member function 'MyList < int >::isEmpty' can be static (but you may consider moving to unnamed namespace). [functionStatic]
-        bool isEmpty();
-             ^
-Exercise-2/src/MyList.cpp:71:17: note: Technically the member function 'MyList < int >::isEmpty' can be static (but you may consider moving to unnamed namespace).
-bool MyList<T>::isEmpty()
-                ^
-Exercise-2/headers/MyList.hpp:21:14: note: Technically the member function 'MyList < int >::isEmpty' can be static (but you may consider moving to unnamed namespace).
-        bool isEmpty();
-             ^
 nofile:0:0: information: Cppcheck cannot find all the include files (use --check-config for details) [missingInclude]
 
