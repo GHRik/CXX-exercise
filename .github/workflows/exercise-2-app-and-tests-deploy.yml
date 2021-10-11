@@ -26,9 +26,9 @@ jobs:
               
       - name: Run cmake
         run:  cmake Exercise-2
-      
-      - name: Cmake build tests
-        run: cmake --build . --target Tests
-
+        
       - name: Cmake build app
         run: cmake --build . --target exercise-2
+        
+      - name: Cmake build tests
+        run: cmake --build . --target Tests
