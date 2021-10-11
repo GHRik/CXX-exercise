@@ -3,3 +3,9 @@ Hello-world/*
 !Hello-world/headers
 !Hello-world/tests
 !Hello-world/main.cpp
+
+Exercise-*/*
+!Exercise-*/src
+!Exercise-*/headers
+!Exercise-*/tests
+!Exercise-*/main.cpp
