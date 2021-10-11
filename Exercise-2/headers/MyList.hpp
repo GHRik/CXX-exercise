@@ -2,13 +2,23 @@
 #define MYLIST_HPP
 
 #include "utils.hpp"
+#include <memory>
+#include <iostream>
+#include <climits>
+
+template <typename T>
+struct Node
+{
+    T value;
+    std::shared_ptr<Node<T>> next_node;
+};
 
 template <typename T>
 class MyList
 {
     public:
         MyList();
-        virtual ~MyList();
+        virtual ~MyList() = default;
         unsigned int getSize();
         utils::RESULT_CODE back_push(T object);
         utils::RESULT_CODE front_push(T object);
@@ -22,7 +32,8 @@ class MyList
 
     private:
         unsigned int list_size;
-
+        std::shared_ptr<Node<T>> head;
+        std::shared_ptr<Node<T>> tail;
 };
 
 #endif // MYLIST_HPP
