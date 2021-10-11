@@ -12,6 +12,7 @@ int main()
     myList.back_push(4);
     myList.back_push(5);
     myList.back_push(6);
+    myList.back_pop();
     myList.printAll();
 
     return 0;

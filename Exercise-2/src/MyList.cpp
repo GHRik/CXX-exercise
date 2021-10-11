@@ -27,7 +27,7 @@ utils::RESULT_CODE MyList<T>::back_push(T object)
     MyList::tail.get()->next_node = newElement;
     MyList::tail = newElement;
 
-    if(list_size == UINT_MAX -1)
+    if(list_size == UINT_MAX-1)
     {
         return utils::RESULT_CODE::OUT_OF_BOUND;
     }
@@ -52,7 +52,7 @@ utils::RESULT_CODE MyList<T>::front_push(T object)
 
     MyList::head = newElement;
 
-    if(list_size == UINT_MAX -1)
+    if(list_size == UINT_MAX-1)
     {
         return utils::RESULT_CODE::OUT_OF_BOUND;
     }
@@ -67,15 +67,41 @@ utils::RESULT_CODE MyList<T>::front_push(T object)
 template<typename T>
 utils::RESULT_CODE MyList<T>::front_pop()
 {
+    if (MyList::isEmpty() == true)
+    {
+        return utils::RESULT_CODE::OUT_OF_BOUND;
+    }
+    std::shared_ptr<Node<T>> temp = head.get()->next_node;
+    head = temp;
+
+    MyList::list_size = MyList::list_size-1;
     return utils::RESULT_CODE::UNKNOWN_ERROR;
 }
 
 template<typename T>
 utils::RESULT_CODE MyList<T>::back_pop()
 {
+    if (MyList::isEmpty() == true)
+    {
+        return utils::RESULT_CODE::OUT_OF_BOUND;
+    }
+    std::shared_ptr<Node<T>> ptrOnElem = MyList::head;
+    if( MyList::head == nullptr )
+    {
+        return utils::RESULT_CODE::NULLPTR_CALLED;
+    }
+    for( unsigned int i = 1; i < MyList::getSize()-1; ++i)
+    {
+        if( ptrOnElem == nullptr )
+        {
+            return utils::RESULT_CODE::NULLPTR_CALLED;
+        }
+        ptrOnElem = ptrOnElem.get()->next_node;
+    }
+    tail = ptrOnElem;
 
-
-    return utils::RESULT_CODE::UNKNOWN_ERROR;
+    MyList::list_size = MyList::list_size-1;
+    return utils::RESULT_CODE::OK;
 }
 
 template<typename T>
