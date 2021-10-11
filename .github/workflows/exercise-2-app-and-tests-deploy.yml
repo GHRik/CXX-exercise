@@ -1,4 +1,4 @@
-name: Deploy exercise-1 and tests
+name: Deploy exercise-2 and tests
 
 on:
   push:
