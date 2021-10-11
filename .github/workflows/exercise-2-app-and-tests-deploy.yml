@@ -1,0 +1,34 @@
+name: Deploy exercise-1 and tests
+
+on:
+  push:
+    branches: [ exercise-2 ]
+
+jobs:
+  build-exercie-1-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2.3.4
+     
+      - name: Run cppcheck
+        uses: deep5050/cppcheck-action@main
+        
+      - name: Publish results
+        uses: mikeal/publish-to-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH_NAME: 'exercise-2'
+        
+      - name: Install cmake
+        uses: Symbitic/install-cmake@v0.1.0
+        env:
+          ACTIONS_ALLOW_UNSECURE_COMMANDS: True
+              
+      - name: Run cmake
+        run:  cmake Exercise-1
+      
+      - name: Cmake build tests
+        run: cmake --build . --target Tests
+
+      - name: Cmake build app
+        run: cmake --build . --target exercise-2
