@@ -9,6 +9,8 @@
 template <typename T>
 struct Node
 {
+    Node() {}
+
     T value;
     std::shared_ptr<Node<T>> next_node;
 };
@@ -27,7 +29,7 @@ class MyList
         utils::RESULT_CODE insert_to_list(unsigned int element, T object);
         utils::RESULT_CODE printAll();
         utils::RESULT_CODE clear_list();
-        T getElement(unsigned int element);
+        std::shared_ptr<Node<T>> getElement(unsigned int element);
         bool isEmpty();
 
     private:

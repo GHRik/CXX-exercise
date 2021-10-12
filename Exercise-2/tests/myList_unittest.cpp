@@ -61,12 +61,12 @@ TEST(myListTest, back_push_properly_pushing)
     myList.back_push(5);
     myList.back_push(6);
     EXPECT_EQ(6,myList.getSize());
-    EXPECT_EQ(1,myList.getElement(0));
-    EXPECT_EQ(2,myList.getElement(1));
-    EXPECT_EQ(3,myList.getElement(2));
-    EXPECT_EQ(4,myList.getElement(3));
-    EXPECT_EQ(5,myList.getElement(4));
-    EXPECT_EQ(6,myList.getElement(5));
+    EXPECT_EQ(1,myList.getElement(0)->value);
+    EXPECT_EQ(2,myList.getElement(1)->value);
+    EXPECT_EQ(3,myList.getElement(2)->value);
+    EXPECT_EQ(4,myList.getElement(3)->value);
+    EXPECT_EQ(5,myList.getElement(4)->value);
+    EXPECT_EQ(6,myList.getElement(5)->value);
 }
 
 TEST(myListTest, front_push_properly_pushing)
@@ -79,12 +79,12 @@ TEST(myListTest, front_push_properly_pushing)
     myList.front_push(5);
     myList.front_push(6);
     EXPECT_EQ(6,myList.getSize());
-    EXPECT_EQ(1,myList.getElement(5));
-    EXPECT_EQ(2,myList.getElement(4));
-    EXPECT_EQ(3,myList.getElement(3));
-    EXPECT_EQ(4,myList.getElement(2));
-    EXPECT_EQ(5,myList.getElement(1));
-    EXPECT_EQ(6,myList.getElement(0));
+    EXPECT_EQ(1,myList.getElement(5)->value);
+    EXPECT_EQ(2,myList.getElement(4)->value);
+    EXPECT_EQ(3,myList.getElement(3)->value);
+    EXPECT_EQ(4,myList.getElement(2)->value);
+    EXPECT_EQ(5,myList.getElement(1)->value);
+    EXPECT_EQ(6,myList.getElement(0)->value);
 }
 
 TEST(myListTest, clearList)
@@ -114,7 +114,7 @@ TEST(myListTest, getElement_OutOfBound)
 {
     MyList<int> myList;
     EXPECT_EQ(utils::RESULT_CODE::OK,myList.back_push(1));
-    EXPECT_EQ(1,myList.getElement(0));
+    EXPECT_EQ(1,myList.getElement(0)->value);
     EXPECT_THROW(myList.getElement(-1),utils::RESULT_CODE);
     EXPECT_THROW(myList.getElement(1),utils::RESULT_CODE);
 }
@@ -126,7 +126,7 @@ TEST(myListTest, insert_to_list)
     EXPECT_EQ(utils::RESULT_CODE::OK,myList.back_push(3));
     EXPECT_EQ(utils::RESULT_CODE::OK,myList.back_push(4));
     EXPECT_EQ(utils::RESULT_CODE::OK,myList.insert_to_list(1,2));
-    EXPECT_EQ(2,myList.getElement(1));
+    EXPECT_EQ(2,myList.getElement(1)->value);
 }
 
 TEST(myListTest, insert_to_front)
@@ -136,7 +136,7 @@ TEST(myListTest, insert_to_front)
     EXPECT_EQ(utils::RESULT_CODE::OK,myList.back_push(2));
     EXPECT_EQ(utils::RESULT_CODE::OK,myList.back_push(3));
     EXPECT_EQ(utils::RESULT_CODE::OK,myList.insert_to_list(0,0));
-    EXPECT_EQ(0,myList.getElement(0));
+    EXPECT_EQ(0,myList.getElement(0)->value);
 }
 
 TEST(myListTest, insert_to_back)
@@ -146,7 +146,7 @@ TEST(myListTest, insert_to_back)
     EXPECT_EQ(utils::RESULT_CODE::OK,myList.back_push(2));
     EXPECT_EQ(utils::RESULT_CODE::OK,myList.back_push(3));
     EXPECT_EQ(utils::RESULT_CODE::OK,myList.insert_to_list(3,4));
-    EXPECT_EQ(4,myList.getElement(3));
+    EXPECT_EQ(4,myList.getElement(3)->value);
 }
 
 TEST(myListTest, insert_to_negative)
@@ -175,7 +175,7 @@ TEST(myListTest, stringList)
     EXPECT_EQ(utils::RESULT_CODE::OK,myList.back_push("2"));
     EXPECT_EQ(utils::RESULT_CODE::OK,myList.back_push("3"));
     EXPECT_EQ(utils::RESULT_CODE::OK,myList.insert_to_list(3,"4"));
-    EXPECT_EQ("4",myList.getElement(3));
+    EXPECT_EQ("4",myList.getElement(3)->value);
 
 }
 
@@ -183,6 +183,7 @@ class MockClass
 {
     public:
         MockClass( int value ): m_value(value){}
+        MockClass(){}
         int m_value;
 
 };
@@ -199,6 +200,6 @@ TEST(myListTest, withMyOwnObject)
     EXPECT_EQ(utils::RESULT_CODE::OK,myList.back_push(mock2));
     EXPECT_EQ(utils::RESULT_CODE::OK,myList.back_push(mock3));
     EXPECT_EQ(utils::RESULT_CODE::OK,myList.insert_to_list(3,mock4));
-    EXPECT_EQ(4,myList.getElement(3).m_value);
+    EXPECT_EQ(4,myList.getElement(3)->value.m_value);
 
 }

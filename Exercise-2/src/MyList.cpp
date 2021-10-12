@@ -15,7 +15,7 @@ unsigned int MyList<T>::getSize()
 template<typename T>
 utils::RESULT_CODE MyList<T>::back_push(T object)
 {
-    std::shared_ptr<Node<T>> newElement( new Node<T> );
+    std::shared_ptr<Node<T>>newElement( new Node<T> );
     newElement.get()->next_node = nullptr;
     newElement.get()->value = object;
 
@@ -129,7 +129,6 @@ utils::RESULT_CODE MyList<T>::insert_to_list(unsigned int element, T object)
         for(unsigned int i = 0; i<element-1; ++i)
         {
             temp = temp.get()->next_node;
-            std::cout << temp.get()->value;
         }
         newElement.get()->next_node = temp.get()->next_node;
         temp.get()->next_node = newElement;
@@ -179,28 +178,26 @@ utils::RESULT_CODE MyList<T>::clear_list()
 }
 
 template<typename T>
-T MyList<T>::getElement(unsigned int element)
+std::shared_ptr<Node<T>> MyList<T>::getElement(unsigned int element)
 {
     if (element >= MyList::getSize())
     {
         throw utils::RESULT_CODE::OUT_OF_BOUND;
     }
-    T value;
     std::shared_ptr<Node<T>> temp = MyList::head;
     if( MyList::head == nullptr )
     {
         throw utils::RESULT_CODE::NULLPTR_CALLED;
     }
-    for( unsigned int i = 0; i <= element; ++i)
+    for( unsigned int i = 0; i < element; ++i)
     {
         if( temp == nullptr )
         {
             throw utils::RESULT_CODE::NULLPTR_CALLED;
         }
-        value = temp.get()->value;
         temp = temp.get()->next_node;
     }
-    return value;
+    return temp;
 
 }
 
