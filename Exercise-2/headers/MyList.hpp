@@ -9,7 +9,7 @@
 template <typename T>
 struct Node
 {
-    Node() {}
+    Node(){}
 
     T value;
     std::shared_ptr<Node<T>> next_node;
@@ -21,7 +21,7 @@ class MyList
     public:
         MyList();
         virtual ~MyList() = default;
-        unsigned int getSize();
+        size_t getSize();
         utils::RESULT_CODE back_push(T object);
         utils::RESULT_CODE front_push(T object);
         utils::RESULT_CODE front_pop();
@@ -33,7 +33,7 @@ class MyList
         bool isEmpty();
 
     private:
-        unsigned int list_size;
+        size_t list_size;
         std::shared_ptr<Node<T>> head;
         std::shared_ptr<Node<T>> tail;
 };

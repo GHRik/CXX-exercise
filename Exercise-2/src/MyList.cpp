@@ -7,7 +7,7 @@ MyList<T>::MyList() : list_size(0), head(nullptr), tail(nullptr)
 }
 
 template <typename T>
-unsigned int MyList<T>::getSize()
+size_t MyList<T>::getSize()
 {
     return MyList<T>::list_size;
 }
@@ -204,7 +204,7 @@ std::shared_ptr<Node<T>> MyList<T>::getElement(unsigned int element)
 template<typename T>
 bool MyList<T>::isEmpty()
 {
-    if (MyList<T>::getSize() == 0)
+    if (MyList<T>::list_size == 0)
     {
         return true;
     }
