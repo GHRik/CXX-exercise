@@ -1,3 +1,15 @@
+Exercise-2/headers/MyList.hpp:22:22: style:inconclusive: Technically the member function 'MyList < MockClass >::getSize' can be const. [functionConst]
+        unsigned int getSize();
+                     ^
+Exercise-2/src/MyList.cpp:10:25: note: Technically the member function 'MyList < MockClass >::getSize' can be const.
+unsigned int MyList<T>::getSize()
+                        ^
+Exercise-2/headers/MyList.hpp:22:22: note: Technically the member function 'MyList < MockClass >::getSize' can be const.
+        unsigned int getSize();
+                     ^
+Exercise-2/main.cpp:10:9: style: Class 'MockClass' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
+        MockClass( int value ): m_value(value){}
+        ^
 Exercise-2/headers/MyList.hpp:22:22: style:inconclusive: Technically the member function 'MyList < int >::getSize' can be const. [functionConst]
         unsigned int getSize();
                      ^
@@ -7,14 +19,20 @@ unsigned int MyList<T>::getSize()
 Exercise-2/headers/MyList.hpp:22:22: note: Technically the member function 'MyList < int >::getSize' can be const.
         unsigned int getSize();
                      ^
-Exercise-2/headers/MyList.hpp:27:28: performance:inconclusive: Technically the member function 'MyList < int >::insert_to_list' can be static (but you may consider moving to unnamed namespace). [functionStatic]
-        utils::RESULT_CODE insert_to_list(unsigned int element, T object);
-                           ^
-Exercise-2/src/MyList.cpp:108:31: note: Technically the member function 'MyList < int >::insert_to_list' can be static (but you may consider moving to unnamed namespace).
-utils::RESULT_CODE MyList<T>::insert_to_list(unsigned int ,T object)
-                              ^
-Exercise-2/headers/MyList.hpp:27:28: note: Technically the member function 'MyList < int >::insert_to_list' can be static (but you may consider moving to unnamed namespace).
-        utils::RESULT_CODE insert_to_list(unsigned int element, T object);
-                           ^
+Exercise-2/headers/MyList.hpp:22:22: style:inconclusive: Technically the member function 'MyList < std :: string >::getSize' can be const. [functionConst]
+        unsigned int getSize();
+                     ^
+Exercise-2/src/MyList.cpp:10:25: note: Technically the member function 'MyList < std :: string >::getSize' can be const.
+unsigned int MyList<T>::getSize()
+                        ^
+Exercise-2/headers/MyList.hpp:22:22: note: Technically the member function 'MyList < std :: string >::getSize' can be const.
+        unsigned int getSize();
+                     ^
+Exercise-2/tests/myList_unittest.cpp:185:9: style: Class 'MockClass' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
+        MockClass( int value ): m_value(value){}
+        ^
+Exercise-2/src/MyList.cpp:16:43: performance: Function parameter 'object' should be passed by const reference. [passedByValue]
+utils::RESULT_CODE MyList<T>::back_push(T object)
+                                          ^
 nofile:0:0: information: Cppcheck cannot find all the include files (use --check-config for details) [missingInclude]
 
