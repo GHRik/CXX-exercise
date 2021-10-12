@@ -1,3 +1,4 @@
+
 Exercise-2/main.cpp:14:9: warning:inconclusive: Member variable 'ExampleClass::m_value' is not initialized in the constructor. [uninitMemberVar]
         ExampleClass(){}
         ^
@@ -7,5 +8,17 @@ Exercise-2/headers/MyList.hpp:23:5: warning: Member variable 'Node < int >::valu
 Exercise-2/tests/myList_unittest.cpp:186:9: warning:inconclusive: Member variable 'MockClass::m_value' is not initialized in the constructor. [uninitMemberVar]
         MockClass(){}
         ^
+Exercise-1/headers/Interfaces/Animal.hpp:13:14: performance:inconclusive: Technically the member function 'Animal::crash' can be static (but you may consider moving to unnamed namespace). [functionStatic]
+        void crash();
+             ^
+Exercise-1/src/Interfaces/Animal.cpp:13:14: note: Technically the member function 'Animal::crash' can be static (but you may consider moving to unnamed namespace).
+void Animal::crash()
+             ^
+Exercise-1/headers/Interfaces/Animal.hpp:13:14: note: Technically the member function 'Animal::crash' can be static (but you may consider moving to unnamed namespace).
+        void crash();
+             ^
+Exercise-1/tests/unitTestAnimal.cpp:19:1: error: syntax error [syntaxError]
+TEST(MockCatTest,SleepingFunction) {
+^
 nofile:0:0: information: Cppcheck cannot find all the include files (use --check-config for details) [missingInclude]
 
