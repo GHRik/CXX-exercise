@@ -1,6 +1,7 @@
 #include <gtest/gtest.h>
 #include <gmock/gmock.h>
 #include "../headers/MyList_template.hpp"
+#include <string>
 
 TEST(myListTestSize,after_back_add)
 {
@@ -164,4 +165,40 @@ TEST(myListTest, insert_too_far)
     EXPECT_EQ(utils::RESULT_CODE::OK,myList.back_push(2));
     EXPECT_EQ(utils::RESULT_CODE::OK,myList.back_push(3));
     EXPECT_THROW(myList.insert_to_list(5,4),utils::RESULT_CODE);
+}
+
+TEST(myListTest, stringList)
+{
+    MyList<std::string> myList;
+
+    EXPECT_EQ(utils::RESULT_CODE::OK,myList.back_push("1"));
+    EXPECT_EQ(utils::RESULT_CODE::OK,myList.back_push("2"));
+    EXPECT_EQ(utils::RESULT_CODE::OK,myList.back_push("3"));
+    EXPECT_EQ(utils::RESULT_CODE::OK,myList.insert_to_list(3,"4"));
+    EXPECT_EQ("4",myList.getElement(3));
+
+}
+
+class MockClass
+{
+    public:
+        MockClass( int value ): m_value(value){}
+        int m_value;
+
+};
+
+TEST(myListTest, withMyOwnObject)
+{
+    MockClass mock1(1);
+    MockClass mock2(2);
+    MockClass mock3(3);
+    MockClass mock4(4);
+    MyList<MockClass> myList;
+
+    EXPECT_EQ(utils::RESULT_CODE::OK,myList.back_push(mock1));
+    EXPECT_EQ(utils::RESULT_CODE::OK,myList.back_push(mock2));
+    EXPECT_EQ(utils::RESULT_CODE::OK,myList.back_push(mock3));
+    EXPECT_EQ(utils::RESULT_CODE::OK,myList.insert_to_list(3,mock4));
+    EXPECT_EQ(4,myList.getElement(3).m_value);
+
 }
