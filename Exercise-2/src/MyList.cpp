@@ -75,7 +75,7 @@ utils::RESULT_CODE MyList<T>::front_pop()
     head = temp;
 
     MyList::list_size = MyList::list_size-1;
-    return utils::RESULT_CODE::UNKNOWN_ERROR;
+    return utils::RESULT_CODE::OK;
 }
 
 template<typename T>
@@ -189,7 +189,7 @@ T MyList<T>::getElement(unsigned int element)
     std::shared_ptr<Node<T>> temp = MyList::head;
     if( MyList::head == nullptr )
     {
-        return utils::RESULT_CODE::NULLPTR_CALLED;
+        throw utils::RESULT_CODE::NULLPTR_CALLED;
     }
     for( unsigned int i = 0; i <= element; ++i)
     {
