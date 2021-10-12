@@ -15,7 +15,7 @@ size_t MyList<T>::getSize()
 template<typename T>
 utils::RESULT_CODE MyList<T>::back_push(T object)
 {
-    std::shared_ptr<Node<T>>newElement( new Node<T> );
+    auto newElement = std::make_shared<Node<T>>();
     newElement.get()->next_node = nullptr;
     newElement.get()->value = object;
 
@@ -46,7 +46,7 @@ utils::RESULT_CODE MyList<T>::front_push(T object)
     {
         return MyList::back_push(object);
     }
-    std::shared_ptr<Node<T>> newElement( new Node<T> );
+    auto newElement = std::make_shared<Node<T>>();
     newElement.get()->next_node = MyList::head;
     newElement.get()->value = object;
 
@@ -121,7 +121,7 @@ utils::RESULT_CODE MyList<T>::insert_to_list(unsigned int element, T object)
     }
     else
     {
-        std::shared_ptr<Node<T>> newElement( new Node<T> );
+        auto newElement = std::make_shared<Node<T>>();;
         newElement.get()->next_node = nullptr;
         newElement.get()->value = object;
 
