@@ -109,7 +109,7 @@ utils::RESULT_CODE MyList<T>::insert_to_list(unsigned int element, T object)
 {
     if(element > MyList::getSize())
     {
-        throw utils::RESULT_CODE::OUT_OF_BOUND;
+        throw std::out_of_range("");
     }
     else if(element == 0)
     {
@@ -135,7 +135,7 @@ utils::RESULT_CODE MyList<T>::insert_to_list(unsigned int element, T object)
 
          if(list_size == UINT_MAX-1)
         {
-            return utils::RESULT_CODE::OUT_OF_BOUND;
+            throw std::out_of_range("");
         }
         else
         {
@@ -182,18 +182,18 @@ std::shared_ptr<Node<T>> MyList<T>::getElement(unsigned int element)
 {
     if (element >= MyList::getSize())
     {
-        throw utils::RESULT_CODE::OUT_OF_BOUND;
+        throw std::out_of_range("");
     }
     std::shared_ptr<Node<T>> temp = MyList::head;
     if( MyList::head == nullptr )
     {
-        throw utils::RESULT_CODE::NULLPTR_CALLED;
+        throw std::invalid_argument("");
     }
     for( unsigned int i = 0; i < element; ++i)
     {
         if( temp == nullptr )
         {
-            throw utils::RESULT_CODE::NULLPTR_CALLED;
+            throw std::invalid_argument("");
         }
         temp = temp.get()->next_node;
     }

@@ -105,9 +105,9 @@ TEST(myListTest, getElement_OutOfBound_empty_list)
 {
     MyList<int> myList;
     EXPECT_TRUE(myList.isEmpty());
-    EXPECT_THROW(myList.getElement(0),utils::RESULT_CODE);
-    EXPECT_THROW(myList.getElement(-1),utils::RESULT_CODE);
-    EXPECT_THROW(myList.getElement(1),utils::RESULT_CODE);
+    EXPECT_THROW(myList.getElement(0),std::out_of_range);
+    EXPECT_THROW(myList.getElement(-1),std::out_of_range);
+    EXPECT_THROW(myList.getElement(1),std::out_of_range);
 }
 
 TEST(myListTest, getElement_OutOfBound)
@@ -115,8 +115,8 @@ TEST(myListTest, getElement_OutOfBound)
     MyList<int> myList;
     EXPECT_EQ(utils::RESULT_CODE::OK,myList.back_push(1));
     EXPECT_EQ(1,myList.getElement(0)->value);
-    EXPECT_THROW(myList.getElement(-1),utils::RESULT_CODE);
-    EXPECT_THROW(myList.getElement(1),utils::RESULT_CODE);
+    EXPECT_THROW(myList.getElement(-1),std::out_of_range);
+    EXPECT_THROW(myList.getElement(1),std::out_of_range);
 }
 
 TEST(myListTest, insert_to_list)
@@ -155,7 +155,7 @@ TEST(myListTest, insert_to_negative)
     EXPECT_EQ(utils::RESULT_CODE::OK,myList.back_push(1));
     EXPECT_EQ(utils::RESULT_CODE::OK,myList.back_push(2));
     EXPECT_EQ(utils::RESULT_CODE::OK,myList.back_push(3));
-    EXPECT_THROW(myList.insert_to_list(-1,4),utils::RESULT_CODE);
+    EXPECT_THROW(myList.insert_to_list(-1,4),std::out_of_range);
 }
 
 TEST(myListTest, insert_too_far)
@@ -164,7 +164,7 @@ TEST(myListTest, insert_too_far)
     EXPECT_EQ(utils::RESULT_CODE::OK,myList.back_push(1));
     EXPECT_EQ(utils::RESULT_CODE::OK,myList.back_push(2));
     EXPECT_EQ(utils::RESULT_CODE::OK,myList.back_push(3));
-    EXPECT_THROW(myList.insert_to_list(5,4),utils::RESULT_CODE);
+    EXPECT_THROW(myList.insert_to_list(5,4),std::out_of_range);
 }
 
 TEST(myListTest, stringList)

@@ -5,6 +5,7 @@
 #include <memory>
 #include <iostream>
 #include <climits>
+#include <exception>
 
 template <typename T>
 struct Node
