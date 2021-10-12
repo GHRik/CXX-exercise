@@ -99,3 +99,22 @@ TEST(myListTest, clearList)
     myList.clear_list();
     EXPECT_EQ(0,myList.getSize());
 }
+
+TEST(myListTest, getElement_OutOfBound_empty_list)
+{
+    MyList<int> myList;
+    EXPECT_TRUE(myList.isEmpty());
+    EXPECT_THROW(myList.getElement(0),utils::RESULT_CODE);
+    EXPECT_THROW(myList.getElement(-1),utils::RESULT_CODE);
+    EXPECT_THROW(myList.getElement(1),utils::RESULT_CODE);
+}
+
+TEST(myListTest, getElement_OutOfBound)
+{
+    MyList<int> myList;
+    EXPECT_EQ(utils::RESULT_CODE::OK,myList.back_push(1));
+    EXPECT_EQ(1,myList.getElement(0));
+    EXPECT_THROW(myList.getElement(-1),utils::RESULT_CODE);
+    EXPECT_THROW(myList.getElement(1),utils::RESULT_CODE);
+}
+

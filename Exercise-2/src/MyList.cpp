@@ -145,7 +145,7 @@ T MyList<T>::getElement(unsigned int element)
 {
     if (element >= MyList::getSize())
     {
-        return utils::RESULT_CODE::OUT_OF_BOUND;
+        throw utils::RESULT_CODE::OUT_OF_BOUND;
     }
     T value;
     std::shared_ptr<Node<T>> temp = MyList::head;
@@ -157,7 +157,7 @@ T MyList<T>::getElement(unsigned int element)
     {
         if( temp == nullptr )
         {
-            return utils::RESULT_CODE::NULLPTR_CALLED;
+            throw utils::RESULT_CODE::NULLPTR_CALLED;
         }
         value = temp.get()->value;
         temp = temp.get()->next_node;
