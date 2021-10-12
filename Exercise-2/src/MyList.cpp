@@ -7,13 +7,13 @@ MyList<T>::MyList() : list_size(0), head(nullptr), tail(nullptr)
 }
 
 template <typename T>
-const size_t MyList<T>::getSize()
+const size_t MyList<T>::getSize() const
 {
     return MyList<T>::list_size;
 }
 
 template<typename T>
-utils::RESULT_CODE MyList<T>::back_push(T const & object)
+const utils::RESULT_CODE MyList<T>::back_push(T const & object)
 {
     auto newElement = std::make_shared<Node<T>>();
     newElement.get()->next_node = nullptr;
@@ -40,7 +40,7 @@ utils::RESULT_CODE MyList<T>::back_push(T const & object)
 }
 
 template<typename T>
-utils::RESULT_CODE MyList<T>::front_push(T const & object)
+const utils::RESULT_CODE MyList<T>::front_push(T const & object)
 {
     if( MyList::isEmpty() == true )
     {
@@ -65,7 +65,7 @@ utils::RESULT_CODE MyList<T>::front_push(T const & object)
 }
 
 template<typename T>
-utils::RESULT_CODE MyList<T>::front_pop()
+const utils::RESULT_CODE MyList<T>::front_pop()
 {
     if (MyList::isEmpty() == true)
     {
@@ -79,7 +79,7 @@ utils::RESULT_CODE MyList<T>::front_pop()
 }
 
 template<typename T>
-utils::RESULT_CODE MyList<T>::back_pop()
+const utils::RESULT_CODE MyList<T>::back_pop()
 {
     if (MyList::isEmpty() == true)
     {
@@ -105,7 +105,7 @@ utils::RESULT_CODE MyList<T>::back_pop()
 }
 
 template<typename T>
-utils::RESULT_CODE MyList<T>::insert_to_list(unsigned int element, T object)
+const utils::RESULT_CODE MyList<T>::insert_to_list(const unsigned int & element, const T & object)
 {
     if(element > MyList::getSize())
     {
@@ -148,7 +148,7 @@ utils::RESULT_CODE MyList<T>::insert_to_list(unsigned int element, T object)
 }
 
 template<typename T>
-utils::RESULT_CODE MyList<T>::printAll()
+const utils::RESULT_CODE MyList<T>::printAll() const
 {
     std::shared_ptr<Node<T>> temp = MyList::head;
     if (MyList::head == nullptr)
@@ -169,7 +169,7 @@ utils::RESULT_CODE MyList<T>::printAll()
 }
 
 template<typename T>
-utils::RESULT_CODE MyList<T>::clear_list()
+const utils::RESULT_CODE MyList<T>::clear_list()
 {
     MyList::head = nullptr;
     MyList::tail = nullptr;
@@ -178,7 +178,7 @@ utils::RESULT_CODE MyList<T>::clear_list()
 }
 
 template<typename T>
-std::shared_ptr<Node<T>> MyList<T>::getElement(unsigned int element)
+const std::shared_ptr<Node<T>> MyList<T>::getElement(const unsigned int & element) const
 {
     if (element >= MyList::getSize())
     {
@@ -202,7 +202,7 @@ std::shared_ptr<Node<T>> MyList<T>::getElement(unsigned int element)
 }
 
 template<typename T>
-const bool MyList<T>::isEmpty()
+const bool MyList<T>::isEmpty() const
 {
     if (MyList<T>::list_size == 0)
     {

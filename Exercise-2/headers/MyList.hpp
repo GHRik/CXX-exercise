@@ -47,7 +47,7 @@ class MyList
          * \return size of object liked list
          *
          */
-        const size_t getSize();
+        const size_t getSize() const;
 
         /** \brief push_back
          *  This function take a object and insert
@@ -60,7 +60,7 @@ class MyList
          *  OUT_OF_BOUND - if UINT_MAX is size.
          *
          */
-        utils::RESULT_CODE back_push(T const & object);
+        const utils::RESULT_CODE back_push(T const & object);
 
         /** \brief push_back
          *  This function take a object and insert
@@ -74,7 +74,7 @@ class MyList
          *  OUT_OF_BOUND - if UINT_MAX is size.
          *
          */
-        utils::RESULT_CODE front_push(T const & object);
+        const utils::RESULT_CODE front_push(T const & object);
 
         /** \brief front_pop
          *  This function remove first object of the
@@ -84,7 +84,7 @@ class MyList
          *  OUT_OF_BOUND - if pop on empty list.
          *
          */
-        utils::RESULT_CODE front_pop();
+        const utils::RESULT_CODE front_pop();
 
         /** \brief front_pop
          *  This function remove last object of the
@@ -94,7 +94,7 @@ class MyList
          *  OUT_OF_BOUND - if pop on empty list.
          *
          */
-        utils::RESULT_CODE back_pop();
+        const utils::RESULT_CODE back_pop();
 
         /** \brief insert function
          *  With this function you can insert object on
@@ -110,7 +110,7 @@ class MyList
          *  OUT_OF_BOUND - if nth place is size+1 or
          *  smaller than 0.
          */
-        utils::RESULT_CODE insert_to_list(unsigned int element, T object);
+        const utils::RESULT_CODE insert_to_list(const unsigned int & element, const T &object);
 
         /** \brief printAll
          *  With printAll function you can print all
@@ -121,7 +121,7 @@ class MyList
          *  NULLPTR_EXCEPTION - if nullptr was called
          *
          */
-        utils::RESULT_CODE printAll();
+        const utils::RESULT_CODE printAll() const;
 
         /** \brief clear
          *  If you want to delete all object which
@@ -131,7 +131,7 @@ class MyList
          * \return RESULT_CODE - OK if finally clear
          *
          */
-        utils::RESULT_CODE clear_list();
+        const utils::RESULT_CODE clear_list();
 
         /** \brief getElement
          *  With this function you can get pointer on
@@ -146,7 +146,7 @@ class MyList
          *  NULLPTR_EXCEPTION - if nullptr was called
          *
          */
-        std::shared_ptr<Node<T>> getElement(unsigned int element);
+        const std::shared_ptr<Node<T>> getElement(const unsigned int & element) const;
 
         /** \brief isEmpty
          *  Function will check if linked list
@@ -155,7 +155,7 @@ class MyList
          *  false if not empty
          *
          */
-        const bool isEmpty();
+        const bool isEmpty() const;
 
     private:
         size_t list_size;
