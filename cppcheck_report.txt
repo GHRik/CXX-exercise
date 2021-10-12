@@ -2,41 +2,68 @@ Exercise-2/main.cpp:11:9: warning:inconclusive: Member variable 'MockClass::m_va
         MockClass(){}
         ^
 Exercise-2/headers/MyList.hpp:12:5: warning: Member variable 'Node < int >::value' is not initialized in the constructor. [uninitMemberVar]
-    Node() {}
+    Node(){}
     ^
-Exercise-2/headers/MyList.hpp:24:22: style:inconclusive: Technically the member function 'MyList < MockClass >::getSize' can be const. [functionConst]
-        unsigned int getSize();
-                     ^
-Exercise-2/src/MyList.cpp:10:25: note: Technically the member function 'MyList < MockClass >::getSize' can be const.
-unsigned int MyList<T>::getSize()
-                        ^
-Exercise-2/headers/MyList.hpp:24:22: note: Technically the member function 'MyList < MockClass >::getSize' can be const.
-        unsigned int getSize();
-                     ^
-Exercise-2/headers/MyList.hpp:24:22: style:inconclusive: Technically the member function 'MyList < int >::getSize' can be const. [functionConst]
-        unsigned int getSize();
-                     ^
-Exercise-2/src/MyList.cpp:10:25: note: Technically the member function 'MyList < int >::getSize' can be const.
-unsigned int MyList<T>::getSize()
-                        ^
-Exercise-2/headers/MyList.hpp:24:22: note: Technically the member function 'MyList < int >::getSize' can be const.
-        unsigned int getSize();
-                     ^
+Exercise-2/headers/MyList.hpp:24:16: style:inconclusive: Technically the member function 'MyList < MockClass >::getSize' can be const. [functionConst]
+        size_t getSize();
+               ^
+Exercise-2/src/MyList.cpp:10:19: note: Technically the member function 'MyList < MockClass >::getSize' can be const.
+size_t MyList<T>::getSize()
+                  ^
+Exercise-2/headers/MyList.hpp:24:16: note: Technically the member function 'MyList < MockClass >::getSize' can be const.
+        size_t getSize();
+               ^
+Exercise-2/headers/MyList.hpp:33:14: style:inconclusive: Technically the member function 'MyList < MockClass >::isEmpty' can be const. [functionConst]
+        bool isEmpty();
+             ^
+Exercise-2/src/MyList.cpp:205:17: note: Technically the member function 'MyList < MockClass >::isEmpty' can be const.
+bool MyList<T>::isEmpty()
+                ^
+Exercise-2/headers/MyList.hpp:33:14: note: Technically the member function 'MyList < MockClass >::isEmpty' can be const.
+        bool isEmpty();
+             ^
+Exercise-2/headers/MyList.hpp:24:16: style:inconclusive: Technically the member function 'MyList < int >::getSize' can be const. [functionConst]
+        size_t getSize();
+               ^
+Exercise-2/src/MyList.cpp:10:19: note: Technically the member function 'MyList < int >::getSize' can be const.
+size_t MyList<T>::getSize()
+                  ^
+Exercise-2/headers/MyList.hpp:24:16: note: Technically the member function 'MyList < int >::getSize' can be const.
+        size_t getSize();
+               ^
+Exercise-2/headers/MyList.hpp:33:14: style:inconclusive: Technically the member function 'MyList < int >::isEmpty' can be const. [functionConst]
+        bool isEmpty();
+             ^
+Exercise-2/src/MyList.cpp:205:17: note: Technically the member function 'MyList < int >::isEmpty' can be const.
+bool MyList<T>::isEmpty()
+                ^
+Exercise-2/headers/MyList.hpp:33:14: note: Technically the member function 'MyList < int >::isEmpty' can be const.
+        bool isEmpty();
+             ^
 Exercise-2/main.cpp:10:9: style: Class 'MockClass' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
         MockClass( int value ): m_value(value){}
         ^
 Exercise-2/tests/myList_unittest.cpp:186:9: warning:inconclusive: Member variable 'MockClass::m_value' is not initialized in the constructor. [uninitMemberVar]
         MockClass(){}
         ^
-Exercise-2/headers/MyList.hpp:24:22: style:inconclusive: Technically the member function 'MyList < std :: string >::getSize' can be const. [functionConst]
-        unsigned int getSize();
-                     ^
-Exercise-2/src/MyList.cpp:10:25: note: Technically the member function 'MyList < std :: string >::getSize' can be const.
-unsigned int MyList<T>::getSize()
-                        ^
-Exercise-2/headers/MyList.hpp:24:22: note: Technically the member function 'MyList < std :: string >::getSize' can be const.
-        unsigned int getSize();
-                     ^
+Exercise-2/headers/MyList.hpp:24:16: style:inconclusive: Technically the member function 'MyList < std :: string >::getSize' can be const. [functionConst]
+        size_t getSize();
+               ^
+Exercise-2/src/MyList.cpp:10:19: note: Technically the member function 'MyList < std :: string >::getSize' can be const.
+size_t MyList<T>::getSize()
+                  ^
+Exercise-2/headers/MyList.hpp:24:16: note: Technically the member function 'MyList < std :: string >::getSize' can be const.
+        size_t getSize();
+               ^
+Exercise-2/headers/MyList.hpp:33:14: style:inconclusive: Technically the member function 'MyList < std :: string >::isEmpty' can be const. [functionConst]
+        bool isEmpty();
+             ^
+Exercise-2/src/MyList.cpp:205:17: note: Technically the member function 'MyList < std :: string >::isEmpty' can be const.
+bool MyList<T>::isEmpty()
+                ^
+Exercise-2/headers/MyList.hpp:33:14: note: Technically the member function 'MyList < std :: string >::isEmpty' can be const.
+        bool isEmpty();
+             ^
 Exercise-2/tests/myList_unittest.cpp:185:9: style: Class 'MockClass' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
         MockClass( int value ): m_value(value){}
         ^
