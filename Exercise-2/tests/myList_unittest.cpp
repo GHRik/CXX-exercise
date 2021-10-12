@@ -118,3 +118,50 @@ TEST(myListTest, getElement_OutOfBound)
     EXPECT_THROW(myList.getElement(1),utils::RESULT_CODE);
 }
 
+TEST(myListTest, insert_to_list)
+{
+    MyList<int> myList;
+    EXPECT_EQ(utils::RESULT_CODE::OK,myList.back_push(1));
+    EXPECT_EQ(utils::RESULT_CODE::OK,myList.back_push(3));
+    EXPECT_EQ(utils::RESULT_CODE::OK,myList.back_push(4));
+    EXPECT_EQ(utils::RESULT_CODE::OK,myList.insert_to_list(1,2));
+    EXPECT_EQ(2,myList.getElement(1));
+}
+
+TEST(myListTest, insert_to_front)
+{
+    MyList<int> myList;
+    EXPECT_EQ(utils::RESULT_CODE::OK,myList.back_push(1));
+    EXPECT_EQ(utils::RESULT_CODE::OK,myList.back_push(2));
+    EXPECT_EQ(utils::RESULT_CODE::OK,myList.back_push(3));
+    EXPECT_EQ(utils::RESULT_CODE::OK,myList.insert_to_list(0,0));
+    EXPECT_EQ(0,myList.getElement(0));
+}
+
+TEST(myListTest, insert_to_back)
+{
+    MyList<int> myList;
+    EXPECT_EQ(utils::RESULT_CODE::OK,myList.back_push(1));
+    EXPECT_EQ(utils::RESULT_CODE::OK,myList.back_push(2));
+    EXPECT_EQ(utils::RESULT_CODE::OK,myList.back_push(3));
+    EXPECT_EQ(utils::RESULT_CODE::OK,myList.insert_to_list(3,4));
+    EXPECT_EQ(4,myList.getElement(3));
+}
+
+TEST(myListTest, insert_to_negative)
+{
+    MyList<int> myList;
+    EXPECT_EQ(utils::RESULT_CODE::OK,myList.back_push(1));
+    EXPECT_EQ(utils::RESULT_CODE::OK,myList.back_push(2));
+    EXPECT_EQ(utils::RESULT_CODE::OK,myList.back_push(3));
+    EXPECT_THROW(myList.insert_to_list(-1,4),utils::RESULT_CODE);
+}
+
+TEST(myListTest, insert_too_far)
+{
+    MyList<int> myList;
+    EXPECT_EQ(utils::RESULT_CODE::OK,myList.back_push(1));
+    EXPECT_EQ(utils::RESULT_CODE::OK,myList.back_push(2));
+    EXPECT_EQ(utils::RESULT_CODE::OK,myList.back_push(3));
+    EXPECT_THROW(myList.insert_to_list(5,4),utils::RESULT_CODE);
+}
