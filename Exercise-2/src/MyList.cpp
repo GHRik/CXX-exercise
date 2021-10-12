@@ -61,7 +61,7 @@ utils::RESULT_CODE MyList<T>::front_push(T object)
       MyList::list_size = MyList::list_size+1;
     }
 
-    return utils::RESULT_CODE::UNKNOWN_ERROR;
+    return utils::RESULT_CODE::OK;
 }
 
 template<typename T>
@@ -105,9 +105,47 @@ utils::RESULT_CODE MyList<T>::back_pop()
 }
 
 template<typename T>
-utils::RESULT_CODE MyList<T>::insert_to_list(unsigned int ,T object)
+utils::RESULT_CODE MyList<T>::insert_to_list(unsigned int element, T object)
 {
-    return utils::RESULT_CODE::UNKNOWN_ERROR;
+    if(element > MyList::getSize())
+    {
+        throw utils::RESULT_CODE::OUT_OF_BOUND;
+    }
+    else if(element == 0)
+    {
+        return MyList::front_push(object);
+    }
+    else if(element == MyList::getSize())
+    {
+        return MyList::back_push(object);
+    }
+    else
+    {
+        std::shared_ptr<Node<T>> newElement( new Node<T> );
+        newElement.get()->next_node = nullptr;
+        newElement.get()->value = object;
+
+        std::shared_ptr<Node<T>> temp = head;
+        for(unsigned int i = 0; i<element-1; ++i)
+        {
+            temp = temp.get()->next_node;
+            std::cout << temp.get()->value;
+        }
+        newElement.get()->next_node = temp.get()->next_node;
+        temp.get()->next_node = newElement;
+
+         if(list_size == UINT_MAX-1)
+        {
+            return utils::RESULT_CODE::OUT_OF_BOUND;
+        }
+        else
+        {
+            MyList::list_size = MyList::list_size+1;
+        }
+
+        return utils::RESULT_CODE::OK;
+    }
+
 }
 
 template<typename T>
