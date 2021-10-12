@@ -47,7 +47,7 @@ class MyList
          * \return size of object liked list
          *
          */
-        size_t getSize();
+        const size_t getSize();
 
         /** \brief push_back
          *  This function take a object and insert
@@ -60,7 +60,7 @@ class MyList
          *  OUT_OF_BOUND - if UINT_MAX is size.
          *
          */
-        utils::RESULT_CODE back_push(T object);
+        utils::RESULT_CODE back_push(T const & object);
 
         /** \brief push_back
          *  This function take a object and insert
@@ -74,7 +74,7 @@ class MyList
          *  OUT_OF_BOUND - if UINT_MAX is size.
          *
          */
-        utils::RESULT_CODE front_push(T object);
+        utils::RESULT_CODE front_push(T const & object);
 
         /** \brief front_pop
          *  This function remove first object of the
@@ -155,7 +155,7 @@ class MyList
          *  false if not empty
          *
          */
-        bool isEmpty();
+        const bool isEmpty();
 
     private:
         size_t list_size;

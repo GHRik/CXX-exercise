@@ -182,7 +182,7 @@ TEST(myListTest, stringList)
 class MockClass
 {
     public:
-        MockClass( int value ): m_value(value){}
+        explicit MockClass( int value ): m_value(value){}
         MockClass(){}
         int m_value;
 

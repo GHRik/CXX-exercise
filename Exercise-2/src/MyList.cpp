@@ -7,13 +7,13 @@ MyList<T>::MyList() : list_size(0), head(nullptr), tail(nullptr)
 }
 
 template <typename T>
-size_t MyList<T>::getSize()
+const size_t MyList<T>::getSize()
 {
     return MyList<T>::list_size;
 }
 
 template<typename T>
-utils::RESULT_CODE MyList<T>::back_push(T object)
+utils::RESULT_CODE MyList<T>::back_push(T const & object)
 {
     auto newElement = std::make_shared<Node<T>>();
     newElement.get()->next_node = nullptr;
@@ -40,7 +40,7 @@ utils::RESULT_CODE MyList<T>::back_push(T object)
 }
 
 template<typename T>
-utils::RESULT_CODE MyList<T>::front_push(T object)
+utils::RESULT_CODE MyList<T>::front_push(T const & object)
 {
     if( MyList::isEmpty() == true )
     {
@@ -202,7 +202,7 @@ std::shared_ptr<Node<T>> MyList<T>::getElement(unsigned int element)
 }
 
 template<typename T>
-bool MyList<T>::isEmpty()
+const bool MyList<T>::isEmpty()
 {
     if (MyList<T>::list_size == 0)
     {

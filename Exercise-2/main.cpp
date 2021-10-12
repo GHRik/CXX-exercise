@@ -4,11 +4,14 @@
 
 using namespace std;
 
-class MockClass
+class ExampleClass
 {
     public:
-        MockClass( int value ): m_value(value){}
-        MockClass(){}
+        explicit ExampleClass( int value ): m_value(value)
+        {
+            m_value = value;
+        }
+        ExampleClass(){}
         int m_value;
 
 };
@@ -16,11 +19,11 @@ class MockClass
 int main()
 {
 
-    MockClass mock1(1);
-    MockClass mock2(2);
-    MockClass mock3(3);
-    MockClass mock4(4);
-    MyList<MockClass> myList;
+    ExampleClass mock1(1);
+    ExampleClass mock2(2);
+    ExampleClass mock3(3);
+    ExampleClass mock4(4);
+    MyList<ExampleClass> myList;
 
     myList.back_push(mock1);
     myList.back_push(mock2);
