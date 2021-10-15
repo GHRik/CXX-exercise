@@ -10,13 +10,25 @@ Exercise-1/headers/Interfaces/Animal.hpp:13:14: note: Technically the member fun
 Exercise-1/tests/unitTestAnimal.cpp:19:1: error: syntax error [syntaxError]
 TEST(MockCatTest,SleepingFunction) {
 ^
-Exercise-2/main.cpp:14:9: warning:inconclusive: Member variable 'ExampleClass::m_value' is not initialized in the constructor. [uninitMemberVar]
+Exercise-2/main.cpp:26:9: warning:inconclusive: Member variable 'ExampleClass::m_value' is not initialized in the constructor. [uninitMemberVar]
         ExampleClass(){}
         ^
 Exercise-2/headers/MyList.hpp:23:5: warning: Member variable 'Node < int >::value' is not initialized in the constructor. [uninitMemberVar]
     Node(){}
     ^
-Exercise-2/tests/myList_unittest.cpp:186:9: warning:inconclusive: Member variable 'MockClass::m_value' is not initialized in the constructor. [uninitMemberVar]
+Exercise-2/src/MyList.cpp:130:12: warning:inconclusive: Access of moved variable 'ptrOnElem'. [accessMoved]
+    delete ptrOnElem.get();
+           ^
+Exercise-2/src/MyList.cpp:129:12: note: Calling std::move(ptrOnElem)
+    tail = std::move(ptrOnElem);
+           ^
+Exercise-2/src/MyList.cpp:130:12: note: Access of moved variable 'ptrOnElem'.
+    delete ptrOnElem.get();
+           ^
+Exercise-2/src/MyList.cpp:202:15: style: Variable 'temp' is assigned a value that is never used. [unreadVariable]
+    auto temp = MyList::m_head;
+              ^
+Exercise-2/tests/myList_unittest.cpp:187:9: warning:inconclusive: Member variable 'MockClass::m_value' is not initialized in the constructor. [uninitMemberVar]
         MockClass(){}
         ^
 nofile:0:0: information: Cppcheck cannot find all the include files (use --check-config for details) [missingInclude]
