@@ -16,7 +16,7 @@ add_executable(${CMAKE_PROJECT_NAME}
                )
 
 project(Tests)
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 14)
 
 include(FetchContent)
 FetchContent_Declare(

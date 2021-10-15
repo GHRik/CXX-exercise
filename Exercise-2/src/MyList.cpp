@@ -1,9 +1,15 @@
 #include "MyList.hpp"
 
 template <typename T>
-MyList<T>::MyList() : list_size(0), head(nullptr), tail(nullptr)
+MyList<T>::MyList() : list_size(0), m_head(nullptr), tail(nullptr)
 {
     //ctor
+}
+
+template<typename T>
+MyList<T>::~MyList()
+{
+    //clear_list();
 }
 
 template <typename T>
@@ -13,16 +19,16 @@ const size_t MyList<T>::getSize() const
 }
 
 template<typename T>
-const utils::RESULT_CODE MyList<T>::back_push(T const & object)
+const utils::RESULT_CODE MyList<T>::back_push(const T & object)
 {
     auto newElement = std::make_shared<Node<T>>();
     newElement.get()->next_node = nullptr;
-    newElement.get()->value = object;
+    newElement.get()->value = std::move(object);
 
-    if (MyList::head == nullptr)
+    if (MyList::m_head == nullptr)
     {
-        MyList::head = newElement;
-        MyList::tail = newElement;
+        MyList::m_head = newElement;
+        tail = newElement;
     }
     MyList::tail.get()->next_node = newElement;
     MyList::tail = newElement;
@@ -33,24 +39,24 @@ const utils::RESULT_CODE MyList<T>::back_push(T const & object)
     }
     else
     {
-      MyList::list_size = MyList::list_size+1;
+      ++MyList::list_size;
     }
 
     return utils::RESULT_CODE::OK;
 }
 
 template<typename T>
-const utils::RESULT_CODE MyList<T>::front_push(T const & object)
+const utils::RESULT_CODE MyList<T>::front_push(const T& object)
 {
     if( MyList::isEmpty() == true )
     {
         return MyList::back_push(object);
     }
     auto newElement = std::make_shared<Node<T>>();
-    newElement.get()->next_node = MyList::head;
+    newElement.get()->next_node = MyList::m_head;
     newElement.get()->value = object;
 
-    MyList::head = newElement;
+    MyList::m_head = newElement;
 
     if(list_size == UINT_MAX-1)
     {
@@ -58,7 +64,7 @@ const utils::RESULT_CODE MyList<T>::front_push(T const & object)
     }
     else
     {
-      MyList::list_size = MyList::list_size+1;
+      ++MyList::list_size;
     }
 
     return utils::RESULT_CODE::OK;
@@ -71,10 +77,30 @@ const utils::RESULT_CODE MyList<T>::front_pop()
     {
         return utils::RESULT_CODE::OUT_OF_BOUND;
     }
-    std::shared_ptr<Node<T>> temp = head.get()->next_node;
-    head = temp;
 
-    MyList::list_size = MyList::list_size-1;
+    std::shared_ptr<Node<T>> ptrOnElem = MyList::m_head;
+    std::cout << std::endl << std::endl;
+    std::cout << "head: " << m_head.get() << std::endl;
+    for( unsigned int i = 0; i < MyList::getSize()-1; ++i) //make it on while ptrOnElem != nullptr
+    {
+        ptrOnElem = ptrOnElem.get()->next_node;
+        std::cout << i << ": " << ptrOnElem << std::endl;
+        if( ptrOnElem == nullptr )
+        {
+            return utils::RESULT_CODE::NULLPTR_CALLED;
+        }
+    }
+    std::cout << std::endl;
+    auto temp = m_head.get()->next_node; //drugi element
+    delete m_head.get();
+    m_head = std::move(nullptr);
+    if (temp != nullptr)
+    {
+        m_head = std::move(temp);
+
+    }
+    --MyList::list_size;
+
     return utils::RESULT_CODE::OK;
 }
 
@@ -85,27 +111,31 @@ const utils::RESULT_CODE MyList<T>::back_pop()
     {
         return utils::RESULT_CODE::OUT_OF_BOUND;
     }
-    std::shared_ptr<Node<T>> ptrOnElem = MyList::head;
-    if( MyList::head == nullptr )
+
+    if( MyList::m_head == nullptr )
     {
         return utils::RESULT_CODE::NULLPTR_CALLED;
     }
-    for( unsigned int i = 1; i < MyList::getSize()-1; ++i)
+
+    std::shared_ptr<Node<T>> ptrOnElem = MyList::m_head;
+    for( unsigned int i = 0; i < MyList::getSize()-1; ++i) //make it on while ptrOnElem != nullptr
     {
+        ptrOnElem = ptrOnElem.get()->next_node;
         if( ptrOnElem == nullptr )
         {
             return utils::RESULT_CODE::NULLPTR_CALLED;
         }
-        ptrOnElem = ptrOnElem.get()->next_node;
     }
-    tail = ptrOnElem;
+    tail = std::move(ptrOnElem);
+    delete ptrOnElem.get();
 
-    MyList::list_size = MyList::list_size-1;
+
+    --MyList::list_size;
     return utils::RESULT_CODE::OK;
 }
 
 template<typename T>
-const utils::RESULT_CODE MyList<T>::insert_to_list(const unsigned int & element, const T & object)
+const utils::RESULT_CODE MyList<T>::insert_to_list(unsigned int element, const T & object) //change on std::size_t element
 {
     if(element > MyList::getSize())
     {
@@ -125,21 +155,20 @@ const utils::RESULT_CODE MyList<T>::insert_to_list(const unsigned int & element,
         newElement.get()->next_node = nullptr;
         newElement.get()->value = object;
 
-        std::shared_ptr<Node<T>> temp = head;
+        std::shared_ptr<Node<T>> temp = m_head;
         for(unsigned int i = 0; i<element-1; ++i)
         {
             temp = temp.get()->next_node;
         }
-        newElement.get()->next_node = temp.get()->next_node;
+        newElement.get()->next_node = std::move(temp.get()->next_node);
         temp.get()->next_node = newElement;
-
-         if(list_size == UINT_MAX-1)
+        if(list_size == UINT_MAX-1)
         {
             throw std::out_of_range("");
         }
         else
         {
-            MyList::list_size = MyList::list_size+1;
+            ++MyList::list_size;
         }
 
         return utils::RESULT_CODE::OK;
@@ -150,30 +179,32 @@ const utils::RESULT_CODE MyList<T>::insert_to_list(const unsigned int & element,
 template<typename T>
 const utils::RESULT_CODE MyList<T>::printAll() const
 {
-    std::shared_ptr<Node<T>> temp = MyList::head;
-    if (MyList::head == nullptr)
+    auto temp = MyList::m_head;
+    if (temp == nullptr)
     {
         return utils::RESULT_CODE::NULLPTR_CALLED;
     }
-    while( temp.get()->next_node != MyList::tail.get()->next_node )
+    for( std::size_t i = 0; i < list_size; ++i )
     {
         if( temp == nullptr )
         {
             return utils::RESULT_CODE::NULLPTR_CALLED;
         }
-        std::cout<<temp.get()->value;
+        std::cout<<temp.get()->value << ",";
         temp = temp.get()->next_node;
     }
-    std::cout << tail.get()->value;
     return utils::RESULT_CODE::OK;
 }
 
 template<typename T>
 const utils::RESULT_CODE MyList<T>::clear_list()
 {
-    MyList::head = nullptr;
-    MyList::tail = nullptr;
-    MyList::list_size = 0;
+    auto temp = MyList::m_head;
+    auto tempSize = list_size;
+    for(std::size_t i = 0; i<tempSize;++i)
+    {
+        back_pop();
+    }
     return utils::RESULT_CODE::OK;
 }
 
@@ -184,8 +215,8 @@ const std::shared_ptr<Node<T>> MyList<T>::getElement(const unsigned int & elemen
     {
         throw std::out_of_range("");
     }
-    std::shared_ptr<Node<T>> temp = MyList::head;
-    if( MyList::head == nullptr )
+    std::shared_ptr<Node<T>> temp = MyList::m_head;
+    if( MyList::m_head == nullptr )
     {
         throw std::invalid_argument("");
     }

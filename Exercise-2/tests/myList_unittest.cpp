@@ -20,21 +20,22 @@ TEST(myListTestSize,after_front_add)
 TEST(myListTestSize,after_back_pop)
 {
     MyList<int> myList;
-    EXPECT_EQ(utils::RESULT_CODE::OK,myList.back_push(5));
-    EXPECT_EQ(utils::RESULT_CODE::OK,myList.back_push(6));
-    EXPECT_EQ(2,myList.getSize());
-    EXPECT_EQ(utils::RESULT_CODE::OK,myList.back_pop());
-    EXPECT_EQ(1,myList.getSize());
+    EXPECT_EQ(utils::RESULT_CODE::OK, myList.back_push(5));
+    EXPECT_EQ(utils::RESULT_CODE::OK, myList.back_push(6));
+    EXPECT_EQ(2, myList.getSize());
+    EXPECT_EQ( utils::RESULT_CODE::OK, myList.back_pop() );
+    EXPECT_EQ(1, myList.getSize());
 }
 
 TEST(myListTestSize,after_front_pop)
 {
     MyList<int> myList;
-    EXPECT_EQ(utils::RESULT_CODE::OK,myList.back_push(5));
-    EXPECT_EQ(utils::RESULT_CODE::OK,myList.back_push(6));
-    EXPECT_EQ(2,myList.getSize());
-    EXPECT_EQ(utils::RESULT_CODE::OK,myList.front_pop());
-    EXPECT_EQ(1,myList.getSize());
+    myList.back_push(5);
+    myList.back_push(6);
+    myList.back_push(6);
+    EXPECT_EQ(3, myList.getSize());
+    myList.front_pop();
+    EXPECT_EQ(2, myList.getSize());
 }
 
 TEST(myListTest, front_pop_empty_list)

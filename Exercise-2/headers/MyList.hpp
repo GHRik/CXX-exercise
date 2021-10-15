@@ -21,6 +21,7 @@ template <typename T>
 struct Node
 {
     Node(){}
+    ~Node(){}
 
     T value;
     std::shared_ptr<Node<T>> next_node;
@@ -39,7 +40,7 @@ class MyList
 {
     public:
         MyList();
-        virtual ~MyList() = default;
+        ~MyList();
 
         /** \brief getSize
          *  Function which return a size of
@@ -110,7 +111,7 @@ class MyList
          *  OUT_OF_BOUND - if nth place is size+1 or
          *  smaller than 0.
          */
-        const utils::RESULT_CODE insert_to_list(const unsigned int & element, const T &object);
+        const utils::RESULT_CODE insert_to_list(unsigned int element, const T &object);
 
         /** \brief printAll
          *  With printAll function you can print all
@@ -159,7 +160,7 @@ class MyList
 
     private:
         size_t list_size;
-        std::shared_ptr<Node<T>> head;
+        std::shared_ptr<Node<T>> m_head;
         std::shared_ptr<Node<T>> tail;
 };
 
