@@ -78,27 +78,9 @@ const utils::RESULT_CODE MyList<T>::front_pop()
         return utils::RESULT_CODE::OUT_OF_BOUND;
     }
 
-    std::shared_ptr<Node<T>> ptrOnElem = MyList::m_head;
-    std::cout << std::endl << std::endl;
-    std::cout << "head: " << m_head.get() << std::endl;
-    for( unsigned int i = 0; i < MyList::getSize()-1; ++i) //make it on while ptrOnElem != nullptr
-    {
-        ptrOnElem = ptrOnElem.get()->next_node;
-        std::cout << i << ": " << ptrOnElem << std::endl;
-        if( ptrOnElem == nullptr )
-        {
-            return utils::RESULT_CODE::NULLPTR_CALLED;
-        }
-    }
-    std::cout << std::endl;
-    auto temp = m_head.get()->next_node; //drugi element
-    delete m_head.get();
-    m_head = std::move(nullptr);
-    if (temp != nullptr)
-    {
-        m_head = std::move(temp);
-
-    }
+    auto temp = m_head.get()->next_node;
+    m_head.reset();
+    m_head = std::move(temp);
     --MyList::list_size;
 
     return utils::RESULT_CODE::OK;
