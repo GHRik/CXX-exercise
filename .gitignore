@@ -3,6 +3,7 @@ Hello-world/*
 !Hello-world/headers
 !Hello-world/tests
 !Hello-world/main.cpp
+!Hello-world/README.md
 
 Exercise-*/*
 !Exercise-*/src
@@ -10,3 +11,4 @@ Exercise-*/*
 !Exercise-*/tests
 !Exercise-*/Cmake*
 !Exercise-*/main.cpp
+!Exercise-*/README.md

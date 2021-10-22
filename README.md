@@ -4,12 +4,13 @@
 1. [ Description ](#repo)
 2. [ Technology ](#tech)
 3. [ Sylabus ](#syl)
+4. [ Results ](#res)
 
 
 <a name="repo"></a>
 ## Description
 
-This repo was created to improve my C++ experiance(and maybe a small part of cmake). If you want to get knownleadge from my task which will be done on this repo you should have small C++ programing knownledge. The task will be some more difficult than "start c++ programing course", but not rocket science ;).
+This repo was created to improve my C++ experiance(and maybe a small part of cmake). If you want to get knownleadge from my task which will be done on this repo you should have small C++ programing knownledge. The task will be some more difficult than "start c++ programing course", but not rocket science.
 
 <a name="tech"></a>
 ## Technology
@@ -34,3 +35,16 @@ Get knownledge of:
 8. Using static code check
 9. Using doxygen to genereta documentation 
 10. Using external API to figure how to using authentication and using documentation.
+
+<a name="res"></a>
+## Result
+
+All of the folders in this repo have his own README. In README you will see:
+
+1. Description of the project
+2. design assumptions
+
+
+All test in projects is created before implements methods(TDD).
+All of project have own github workflows to properly deployed test(gtest) and app(cmake).
+
