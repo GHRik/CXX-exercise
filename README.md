@@ -44,7 +44,11 @@ All of the folders in this repo have his own README. In README you will see:
 1. Description of the project
 2. design assumptions
 
+Projects:<br />
+Hello-world - First app with one method print hello-world and tested by gtest <br /> 
+Exercise-1 - App to present how a smart pointers work <br />
+Exercise-2 - Implementation one-way linked-list using smart pointers <br />
 
-All test in projects is created before implements methods(TDD).
-All of project have own github workflows to properly deployed test(gtest) and app(cmake).
+All test in projects is created before implements methods(TDD).<br />
+All of project have own github workflows to properly deployed test(gtest) and app(cmake)<br />.
 
